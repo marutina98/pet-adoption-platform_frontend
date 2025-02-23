@@ -1,0 +1,15 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+}
+
+main {
+  background-color: whitesmoke;
+  padding: 2em;
+}
+
+section[role="main"] {
+  margin-inline: auto;
+  max-width: 75vw;
+}

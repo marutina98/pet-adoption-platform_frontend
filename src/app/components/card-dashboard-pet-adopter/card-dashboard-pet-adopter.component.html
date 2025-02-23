@@ -1,0 +1,70 @@
+
+<app-card-profile [authenticatedUser]="authenticatedUser" />
+
+<div class="dashboard-nav">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Sent Applications</button>
+      <ng-template ngbNavContent>
+        <app-card-application [applicationsBK]="authenticatedUser!.pet_adopter!.sent_applications!"
+                              [authenticatedUser]="authenticatedUser" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Received Reviews</button>
+      <ng-template ngbNavContent>
+        <app-card-review [users]="users" [reviews]="authenticatedUser!.reviews_received" [reviewType]="'received'" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="3">
+      <button ngbNavLink>Given Reviews</button>
+      <ng-template ngbNavContent>
+        <app-card-review [users]="users" [reviews]="authenticatedUser!.reviews_given" [reviewType]="'given'" />
+      </ng-template>
+    </li>
+
+    
+
+    <li [ngbNavItem]="4">
+      <button ngbNavLink>
+        <div [matBadge]="pendingReviews.length" matBadgeOverlap="false">Pending Reviews</div>
+      </button>
+      <ng-template ngbNavContent>
+        
+        @if (pendingReviews.length > 0) {
+
+          <div class="agencies">
+              
+            @for (agency of pendingReviews | slice: (currentPagePendingReviews - 1) * pageSizePendingReviews : currentPagePendingReviews * pageSizePendingReviews; track agency.id) {
+
+              <div class="agency">
+                <img [src]="storageURL + agency.picture" alt="" class="agency-picture">
+                <h6 class="agency-title">{{ agency.name }}</h6>
+                <div class="agency-actions">
+                  <button class="btn btn-primary btn-sm" (click)="openReviewDialog(agency)" >Leave a Review</button>
+                </div>
+              </div>
+
+            }
+
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="currentPagePendingReviews"
+                          [pageSize]="pageSizePendingReviews" [collectionSize]="pendingReviews.length" />
+
+        } @else {
+
+          <div class="no-pending-reviews">
+            <span>There are no pending reviews.</span>
+          </div>
+
+        }
+
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+</div>

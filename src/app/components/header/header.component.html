@@ -1,0 +1,51 @@
+<nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img [src]="logo" alt="Paws and Whiskers Logo" class="d-inline-block align-text-top me-1" width="30px">
+      Paws and Whiskers
+    </a>
+    <div class="navbar-collapse collapse">
+      <ul class="navbar-nav">
+
+        @for (navLink of navLinks; track navLink) {
+          <li class="nav-item">
+            <a [routerLink]="navLink.routerLink"
+               class="nav-link" [class.active]="router.url === navLink.routerLink">{{ navLink.text }}</a>
+          </li>
+        }
+
+        <li class="nav-item" ngbDropdown>
+          <a class="nav-link dropdown-toggle" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>Adopt a Pet</a>
+
+          <div ngbDropdownMenu aria-labelledby="dropdownAdoptAPet">
+            <button ngbDropdownItem [routerLink]="['/browse/type/dogs']">Dogs</button>
+            <button ngbDropdownItem [routerLink]="['/browse/type/cats']">Cats</button>
+            <button ngbDropdownItem [routerLink]="['/browse/type/rabbits']">Rabbits</button>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  <div class="d-flex">
+
+    @if (!isAuthenticated) {
+      <button [routerLink]="['/login']" type="button" class="btn btn-primary btn-sm me-3">Login</button>
+      <button [routerLink]="['/registration']" type="button" class="btn btn-primary btn-sm me-3">Registration</button>
+    } @else {
+      <button [routerLink]="['/dashboard']" type="button" class="btn btn-primary btn-sm me-3">Dashboard</button>
+      <button (click)="logout()" type="button" class="btn btn-primary btn-sm me-3">Logout</button>
+    }
+
+  </div>
+</nav>
+
+<ngb-carousel style="display: none;">
+  @for (image of images; track image) {
+    <ng-template ngbSlide>
+      <div class="carousel-image" [style.--image]="'url(' + image + ')'"></div>
+    </ng-template>
+  }
+</ngb-carousel>

@@ -1,0 +1,52 @@
+
+/* profile */
+
+.profile-picture {
+  background-image: var(--image);
+  background-size: cover;
+  background-position: center center;
+  height: var(--height);
+}
+
+.profile-description:not(.single-page) {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.profile-redirect {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-rating {
+  margin-left: .5em;
+}
+
+.profile-rating-alt {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+/* nav outlet */
+
+.nav-outlet {
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  border-top: 0;
+  padding: 1em;
+}
+
+/* reviews */
+
+app-card-review {
+  display: block;
+  max-height: 75vh;
+  overflow: auto;
+}

@@ -1,0 +1,31 @@
+<div class="card animals">
+    <div class="card-body">
+  
+      <!-- title -->
+  
+      <h5 class="card-title">These are some of the animals that are ready to be adopted.</h5>
+  
+      <!-- grid -->
+  
+      <div class="animals-grid">
+
+        <!--
+
+        @for (agency of animals; track agency.id) {
+          <app-card-user [profile]="agency" [imageHeight]="imageHeight"
+                         [showReviews]="false" [showRedirectBtn]="true" [showRating]="true" />
+        }
+
+      -->
+
+        @for (animal of animals; track animal.id) {
+
+          <app-card-animal [animal]="animal" [singlePage]="false"/>
+
+        }
+
+
+      </div>
+  
+    </div>
+  </div>

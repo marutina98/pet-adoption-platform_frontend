@@ -1,0 +1,34 @@
+<div class="card">
+
+  <!-- if I want to show a carousel -->
+    @if (carousel) {
+    <ngb-carousel class="card-carousel">
+        @for (image of animal.animal_pictures; track image) {
+          <ng-template ngbSlide>
+
+            <div class="card-img-top" [style.--image]="'url(' + storageURL + image.path + ')'"
+                 [style.--height]="imageHeight"></div>
+          </ng-template>
+        }
+    </ngb-carousel>
+  } @else {
+    <!-- if I do not want to show a carousel -->
+    <img [src]="storageURL + animal.animal_pictures[0].path" class="card-img-top">
+  }
+
+  <div class="card-body">
+    <h5 class="card-title animal-title">
+      <span class="animal-name">{{ animal.name }}</span>
+      <span class="animal-age">{{ getAgeLabelFromString(animal.birthdate) }}</span>
+      <span class="animal-sex" [ngClass]="animal.sex === 0 ? 'animal-sex-male' : 'animal-sex-female'">
+        @if (animal.sex === 0) {♂️} @else {♀️}
+      </span>
+    </h5>
+    <p class="card-text animal-description">{{ animal.description }}</p>
+    <div class="card-actions">
+      <button [routerLink]="['/browse/view/animal', animal.id]" type="button" class="btn btn-primary animal-button"
+              [disabled]="animal.status_id != 1">{{ status?.name }}</button>
+    </div>
+  </div>
+  
+</div>

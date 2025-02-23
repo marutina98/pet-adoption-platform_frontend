@@ -1,0 +1,48 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 1.125em/175% system-ui;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: whitesmoke;
+  display: flex;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 150%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,102 @@
+[
+    {
+        "address": "15409 Maybell Walks Suite 678\nLake Noraton, MT 50718",
+        "created_at": "2024-08-23 16:05:46",
+        "id": 1,
+        "name": "Mrs. Shanelle Crist IV",
+        "phone": "+1-740-486-6117",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-09-18 16:34:19",
+        "user_id": 2
+    },
+    {
+        "address": "54410 Hermann Station\nWest Amyastad, GA 15712-7432",
+        "created_at": "2024-08-23 16:05:48",
+        "id": 2,
+        "name": "Jaylin Langworth",
+        "phone": "253-908-1602",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:48",
+        "user_id": 4
+    },
+    {
+        "address": "7344 Porter Brooks\nSouth Jody, AL 23379-1115",
+        "created_at": "2024-08-23 16:05:48",
+        "id": 3,
+        "name": "Neil Littel",
+        "phone": "+1-615-402-0091",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:48",
+        "user_id": 6
+    },
+    {
+        "address": "71728 Davis Junctions Suite 244\nKerlukeborough, SD 86545",
+        "created_at": "2024-08-23 16:05:50",
+        "id": 4,
+        "name": "Shayna Schuppe",
+        "phone": "+1-425-677-4553",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:50",
+        "user_id": 8
+    },
+    {
+        "address": "79564 Willms Inlet\nDeshawnside, CA 45979",
+        "created_at": "2024-08-23 16:05:51",
+        "id": 5,
+        "name": "Jaden Anderson",
+        "phone": "551-852-1909",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:51",
+        "user_id": 10
+    },
+    {
+        "address": "5610 Cruickshank Harbor Suite 310\nDejahchester, VT 25822-3042",
+        "created_at": "2024-08-23 16:05:52",
+        "id": 6,
+        "name": "Durward Pfannerstill",
+        "phone": "860.390.8227",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:52",
+        "user_id": 12
+    },
+    {
+        "address": "9760 Schamberger Spurs Apt. 413\nSouth Vincenzo, CT 29246-0502",
+        "created_at": "2024-08-23 16:05:53",
+        "id": 7,
+        "name": "Octavia Parisian",
+        "phone": "(731) 260-3630",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:53",
+        "user_id": 14
+    },
+    {
+        "address": "815 Orpha Plains Suite 428\nSouth Lillianahaven, DE 78187-6625",
+        "created_at": "2024-08-23 16:05:54",
+        "id": 8,
+        "name": "Ms. Justine Towne",
+        "phone": "1-860-936-4846",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:54",
+        "user_id": 16
+    },
+    {
+        "address": "699 Tyrique Hollow\nPort Vivahaven, IN 06969-5820",
+        "created_at": "2024-08-23 16:05:55",
+        "id": 9,
+        "name": "Miss Naomi Grant III",
+        "phone": "(940) 232-5731",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:55",
+        "user_id": 18
+    },
+    {
+        "address": "70254 Oberbrunner Cliffs\nPort Bobby, WV 14140",
+        "created_at": "2024-08-23 16:05:56",
+        "id": 10,
+        "name": "Prince Effertz",
+        "phone": "270-962-7547",
+        "picture": "images/placeholder.png",
+        "updated_at": "2024-08-23 16:05:56",
+        "user_id": 20
+    }
+]

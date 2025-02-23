@@ -1,0 +1,23 @@
+
+<div class="card agencies">
+  <div class="card-body">
+
+    <!-- title -->
+
+    <h5 class="card-title">Browse all the Agencies</h5>
+
+    <!-- grid -->
+
+    <div class="agencies-grid">
+      @for (agency of agencies | slice: ( currentPage - 1 ) * pageSize : currentPage * pageSize; track agency.id) {
+        <app-card-user [profile]="agency" [imageHeight]="imageHeight"
+                       [showReviews]="false" [showRedirectBtn]="true" [showRating]="true" />
+      }
+    </div>
+
+    <!-- pagination -->
+
+    <ngb-pagination class="pagination" [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="agencies.length" />
+
+  </div>
+</div>

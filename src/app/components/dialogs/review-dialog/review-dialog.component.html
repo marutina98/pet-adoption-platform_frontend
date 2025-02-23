@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="form" (submit)="submit()">
+      <div class="form-row form-row-rating mb-3">
+        <label class="form-label" for="rating">Rate the User</label>
+        <ngb-rating id="rating" formControlName="rating" [max]="5" />
+      </div>
+
+      <div class="form-row mb-3">
+        <label class="form-label" for="comment">Comment</label>
+        <textarea class="form-control" id="comment" formControlName="comment"
+                  placeholder="Leave a Comment Here"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-sm">Submit Review</button>
+    </form>
+  </div>
+</div>

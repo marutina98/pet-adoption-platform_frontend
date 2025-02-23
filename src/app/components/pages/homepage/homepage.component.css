@@ -1,0 +1,17 @@
+:host {
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+	gap: 3em;
+	padding-bottom: 3em;
+}
+
+:host > * {
+	width: 100%;
+}
+
+app-carousel {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}

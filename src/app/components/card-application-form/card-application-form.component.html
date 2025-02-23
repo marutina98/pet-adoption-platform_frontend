@@ -1,0 +1,32 @@
+<div class="card">
+
+  <div class="card-body">
+    <h5 class="card-title">Adoption Application Form</h5>
+    <h6 class="card-subtitle text-body-secondary">Send an Application to adopt this pet. </h6>
+
+    <form class="form" [formGroup]="form" (submit)="onSubmit()">
+      <div class="form-floating mb-3">
+        <input id="name" class="form-control" type="text" formControlName="name" placeholder="Name" required>
+        <label for="name">Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input id="email" class="form-control" type="email" formControlName="email" placeholder="email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input id="phone" class="form-control" type="text" formControlName="phone" placeholder="phone">
+        <label for="phone">Phone</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <textarea id="message" class="form-control" formControlName="message" placeholder="message"></textarea>
+        <label for="message">Message</label>
+      </div>
+
+      <button type="submit" class="mb-3 btn btn-primary" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+
+</div>

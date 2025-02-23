@@ -1,0 +1,210 @@
+[
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Category for dogs of mixed or unidentified breed.",
+        "id": 1,
+        "name": "Mixed Breed Dog",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Friendly and outgoing with a sturdy build and a short, dense coat.",
+        "id": 2,
+        "name": "Labrador Retriever",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Loyal and intelligent, with a muscular build and a dense, medium-length coat.",
+        "id": 3,
+        "name": "German Shepherd",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Friendly and tolerant, with a dense, water-repellant golden coat and a sturdy build.",
+        "id": 4,
+        "name": "Golden Retriever",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Calm and courageous, with a wrinkled face and a distinctive pushed-in nose.",
+        "id": 5,
+        "name": "Bulldog",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Curious and merry, with a compact build and short, easy-to-care-for coat.",
+        "id": 6,
+        "name": "Beagle",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Charming and playful, with a distinctive wrinkled face and curly tail.",
+        "id": 7,
+        "name": "Pug",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Alert and lively, with a small size and big personality.",
+        "id": 8,
+        "name": "Chihuahua",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Energetic and fun-loving, with a strong, muscular build.",
+        "id": 9,
+        "name": "Boxer",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Intelligent and active, known for their curly coat and elegance.",
+        "id": 10,
+        "name": "Poodle",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Confident and protective, with a robust build and short, black-and-tan coat.",
+        "id": 11,
+        "name": "Rottweiler",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Friendly and energetic, with a thick double coat and striking blue or multicolored eyes.",
+        "id": 12,
+        "name": "Siberian Husky",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Clever and lively, with a long body and short legs.",
+        "id": 13,
+        "name": "Dachshund",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 1,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Affectionate and outgoing, with a long, flowing coat.",
+        "id": 14,
+        "name": "Shih Tzu",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Category for cats of mixed or unidentified breed.",
+        "id": 15,
+        "name": "Mixed Breed Cat",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Sociable and vocal, with a sleek, slender body and striking blue almond-shaped eyes.",
+        "id": 16,
+        "name": "Siamese",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Calm and affectionate, with a long, luxurious coat and a flat, round face.",
+        "id": 17,
+        "name": "Persian",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Friendly and intelligent, with a large, sturdy build and a long, shaggy coat.",
+        "id": 18,
+        "name": "Maine Coon",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Active and playful, with a sleek, muscular body and a distinctive spotted or marbled coat.",
+        "id": 19,
+        "name": "Bengal",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 2,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Energetic and affectionate, with a hairless body and large, bat-like ears.",
+        "id": 20,
+        "name": "Sphynx",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Category for rabbits of mixed or unidentified breed.",
+        "id": 21,
+        "name": "Mixed Breed Rabbit",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Friendly and energetic, with floppy ears and a compact, muscular build.",
+        "id": 22,
+        "name": "Holland Lop",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Lively and curious, with a small, compact body and short, upright ears.",
+        "id": 23,
+        "name": "Netherland Dwarf",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Calm and friendly, with a velvety, plush coat and a compact, rounded body.",
+        "id": 24,
+        "name": "Mini Rex",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Playful and gentle, with a distinctive mane of long fur around their head and neck.",
+        "id": 25,
+        "name": "Lionhead",
+        "updated_at": "2024-08-23 16:05:45"
+    },
+    {
+        "animal_type_id": 3,
+        "created_at": "2024-08-23 16:05:45",
+        "description": "Calm and docile, with a large, sturdy build and a dense, glossy coat.",
+        "id": 26,
+        "name": "Flemish Giant",
+        "updated_at": "2024-08-23 16:05:45"
+    }
+]

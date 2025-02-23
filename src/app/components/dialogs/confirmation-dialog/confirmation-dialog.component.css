@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  min-width: 300px;
+  padding: 1em;
+}
+
+.text {
+  text-align: center;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
+}

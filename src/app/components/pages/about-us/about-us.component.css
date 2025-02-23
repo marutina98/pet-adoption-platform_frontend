@@ -1,0 +1,59 @@
+:host {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5em;
+  padding: 2em 0;
+}
+
+.about-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: auto;
+  max-width: 200px;
+  padding: 2em;
+}
+
+.about-row p {
+  text-align: justify;
+  margin: 0;
+}
+
+.about-contact-row {
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  padding: 2em;
+  width: 100%;
+
+  > * {
+    width: 50%;
+  }
+
+  p {
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+
+}
+
+.address-header,
+.email-header {
+  font-size: 2em;
+}
+
+.address,
+.email {
+  background-color: rgba(0, 0, 0, .025);
+  border-radius: 15px;
+  padding: 1em;
+}

@@ -1,0 +1,121 @@
+
+/* app-browser */
+
+:host {
+  display: grid;
+  grid-template-columns: 25% auto;
+  grid-template-areas: 'left right';
+}
+
+/* filters */
+
+.filter {
+  grid-area: left;
+  padding: 2em;
+}
+
+.filter .block {
+  margin-bottom: 2em;
+}
+
+.filter .block-title {
+  font-weight: bold;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.filter .block-content { 
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.filter .block-slider {
+  width: 200%;
+}
+
+/* age range */
+
+.age-range {
+  display: grid;
+  grid-template-rows: 30px auto;
+  width: 100%;
+}
+
+/* age range sliders */
+
+.age-range-sliders {
+  position: relative;
+  height: 30px;
+}
+
+.age-range-slider {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #EEEEEE;
+  cursor: none;
+  height: 5px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.age-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #0D6EFD;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 15px;
+  pointer-events: auto;
+  width: 15px;
+}
+
+.age-range-slider::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #0D6EFD;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 15px;
+  pointer-events: auto;
+  width: 15px;
+}
+
+#min {
+  background-color: transparent;
+  z-index: 1;
+}
+
+/* age range values */
+
+.age-range-values {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.age-range-values button {
+  font-size: .75em;
+  text-transform: uppercase;
+  cursor: auto;
+}
+
+/* animal cards */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  grid-area: right;
+  padding: 2em;
+}
+
+.animals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  grid-area: animals;
+}

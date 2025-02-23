@@ -1,0 +1,20 @@
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">Login.</h5>
+    <p class="card-text">Login to access and use the platform.</p>
+  </div>
+
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input formControlName="email" type="email" class="form-control" id="email" aria-describedBy="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="password" aria-describedBy="password">
+    </div>
+
+    <button type="submit" class="mb-3 btn btn-primary btn-sm" [disabled]="!form.valid">Login</button>
+  </form>
+</div>

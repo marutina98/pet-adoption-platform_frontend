@@ -1,0 +1,25 @@
+.nav-outlet {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  border-top: 0;
+  padding: 1em;
+}
+
+.animals {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 1em;
+}
+
+.animals-grid {
+  display: grid;
+  gap: 2em 1em;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: masonry;
+}
+
+app-card-animal {
+  width: 300px;
+}

@@ -1,0 +1,66 @@
+
+<div class="column left">
+  
+  <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+    
+    <!-- profile -->
+
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Profile</button>
+      <ng-template ngbNavContent>
+        <div class="profile">
+          <img [src]="profile.picture" class="profile-picture">
+          <h6 class="profile-name">{{ profile.name }}</h6>
+          <ul class="profile-info">
+
+            @if (authenticatedUser?.is_pet_agency) {
+
+              <li class="profile-info-element">
+                <span class="profile-info-element-left">Description</span>
+                <span class="profile-info-element-right profile-info-element-truncate text-secondary">{{ profile.description }}</span>
+              </li>
+
+              <li class="profile-info-element">
+                <span class="profile-info-element-left">Website</span>
+                <span class="profile-info-element-right profile-info-element-truncate">
+                  <a class="link-secondary" href="{{ profile.website }}">{{ profile.website }}</a>
+                </span>
+              </li>
+
+            }
+
+            <li class="profile-info-element">
+              <span class="profile-info-element-left">Address</span>
+              <span class="profile-info-element-right profile-info-element-truncate text-secondary">{{ profile.address }}</span>
+            </li>
+
+            <li class="profile-info-element">
+              <span class="profile-info-element-left">Phone</span>
+              <span class="profile-info-element-right text-secondary">{{ profile.phone }}</span>
+            </li>
+
+            <li class="profile-info-element">
+              <span class="profile-info-element-left">Email</span>
+              <span class="profile-info-element-right text-secondary">{{ profile.email }}</span>
+            </li>
+          </ul>
+        </div>
+
+      </ng-template>
+    </li>
+
+    <!-- edit profile -->
+
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Update Profile</button>
+      <ng-template ngbNavContent>
+        <app-card-profile-edit [authenticatedUser]="authenticatedUser" [profile]="profile" />
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <!-- nav-outlet -->
+
+  <div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+</div>

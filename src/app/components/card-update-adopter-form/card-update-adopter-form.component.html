@@ -1,0 +1,24 @@
+<form [formGroup]="form" (submit)="submit()">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="name">
+    <label for="name">Name</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="address">
+    <label for="address">Address</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="phone">
+    <label for="phone">Phone</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="file" accept="image/*" class="form-control" id="picture" formControlName="picture"
+           (change)="onFileChange($event)">
+    <label for="picture">Picture</label>
+  </div>
+
+  <button class="btn btn-primary btn-sm">Submit</button>
+</form>

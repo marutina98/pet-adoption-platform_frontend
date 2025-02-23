@@ -1,0 +1,71 @@
+
+<!-- nav -->
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+  
+  <!-- nav animal and adoption form -->
+
+  <li [ngbNavItem]="1">
+    <button ngbNavLink>Animal</button>
+    <ng-template ngbNavContent>
+
+      <div class="animal-tab">
+        
+        <!-- card animal -->
+
+        @if (animal) {
+          <app-card-animal ngbNavContent [carousel]="true" 
+                           [imageHeight]="imageHeight" [animal]="animal" [status]="status" [singlePage]="true" />
+        }
+
+        <!-- adoption form -->
+
+        @if (animal?.status_id === 1) {
+
+          @if (isAuthenticated && isAuthenticatedUserPetAdopter) {
+
+            <app-card-application-form class="adoption-form" [animalId]="animal!.id" [authenticatedUser]="authenticatedUser" />
+
+          } @else {
+
+            <div class="no-adoption-form">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-text">To adopt this Pet, you need to be logged in as a Pet Adopter.</p>
+                </div>
+              </div>
+            </div>
+
+          }
+
+        } @else {
+
+          <div class="no-adoption-form">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">This pet is not available.</p>
+              </div>
+            </div>
+          </div>
+
+        }
+        
+      </div>
+
+    </ng-template>
+  </li>
+
+  <!-- nav agency -->
+
+  <li [ngbNavItem]="2">
+    <button ngbNavLink>Pet Agency</button>
+    <ng-template ngbNavContent>
+      @if (petAgency) {
+        <app-card-user [profile]="petAgency" [imageHeight]="imageHeight" />
+      }
+    </ng-template>
+  </li>
+
+</ul>
+
+<div [ngbNavOutlet]="nav" class="nav-outlet"></div>

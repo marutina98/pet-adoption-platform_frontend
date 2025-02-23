@@ -1,0 +1,94 @@
+:host {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 400px auto;
+}
+
+.nav-outlet {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  border-top: 0;
+  padding: 0 1em 1em;
+}
+
+/* actions and pagination */
+
+.actions {
+  padding: 1em 0;
+}
+
+.actions > *:not(:last-child) {
+  margin-right: .5em;
+}
+
+.pagination {
+  margin: 1em 0 0;
+  width: 100%;
+}
+
+/* animals and adopters */
+
+.adopters {
+  padding-top: 1em;
+}
+
+.adopter {
+  width: 200px;
+}
+
+.animals,
+.adopters {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+.animal,
+.adopter {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  padding: 1em;
+}
+
+.animal-picture,
+.adopter-picture {
+  width: 150px;
+}
+
+.animal-actions,
+.adopter-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+/* reviews */
+
+app-card-review,
+app-card-application {
+  display: block;
+  padding-top: 1em;
+  max-height: 75vh;
+  overflow: auto;
+}
+
+.no-pending-reviews {
+  padding: 1em 0 0;
+}
+
+.no-pending-reviews span {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  display: block;
+  padding: 1em;
+  text-align: center;
+}

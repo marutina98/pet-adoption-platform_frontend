@@ -1,0 +1,20 @@
+
+.agencies .card-title {
+  text-align: center;
+}
+
+.agencies-grid {
+  display: grid;
+  gap: 2em 1em;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: masonry;
+  padding: 1em;
+}
+
+.pagination {
+  padding: 0 1em;
+}
+
+app-card-user {
+  width: 200px;
+}

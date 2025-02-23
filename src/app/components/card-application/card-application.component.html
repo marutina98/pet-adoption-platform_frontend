@@ -1,0 +1,68 @@
+
+<div class="filters">
+  <button class="btn btn-primary btn-sm" (click)="resetApplications()">Show All Applications</button>
+  <button class="btn btn-primary btn-sm" (click)="filterApplications(1)">Show Pending Review Applications</button>
+  <button class="btn btn-primary btn-sm" (click)="filterApplications(2)">Show Accepted Applications</button>
+  <button class="btn btn-primary btn-sm" (click)="filterApplications(3)">Show Refused Applications</button>
+</div>
+
+@if (applications.length > 0) {
+
+  <div class="applications">
+
+    @for (application of applications; track application.id) {
+
+      <div class="application">
+        
+        <ul class="application-animal">
+          <img class="application-animal-image" [src]="storageURL + application.animal.animal_pictures[0].path">
+          <a class="application-animal-name"
+             [routerLink]="['../browse/view/animal', application.animal.id]">{{ application.animal.name }}</a>
+        </ul>
+
+        <ul class="application-info">
+          
+          <li class="application-user-name">
+            <span class="column-name">Name:</span>
+            <span class="column-content">{{ application.name }}</span>
+          </li>
+
+          <li class="application-user-email">
+            <span class="column-name">Email:</span>
+            <span class="column-content">{{ application.email }}</span>
+          </li>
+
+          <li class="application-user-content">
+            <span class="column-name">Message:</span>
+            <span class="column-content">{{ application.message }}</span>
+          </li>
+
+          <li class="application-user-status">
+            <span class="column-name">Status:</span>
+            <span class="column-content">{{ getStatus(application.application_status_id) }}</span>
+          </li>
+
+        </ul>
+
+        @if (authenticatedUser!.is_pet_agency && application.application_status_id === 1) {
+
+          <div class="application-actions">
+              <button class="btn btn-primary btn-sm" (click)="acceptApplication(application.id)" >Accept</button>
+              <button class="btn btn-primary btn-sm" (click)="refuseApplication(application.id)" >Refuse</button>
+          </div>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+
+} @else {
+
+  <div class="empty">
+    There are no received applications at the moment.
+  </div>
+
+}

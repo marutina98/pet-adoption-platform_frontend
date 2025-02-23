@@ -1,0 +1,103 @@
+
+<app-card-profile [authenticatedUser]="authenticatedUser" />
+
+<div class="dashboard-nav">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Animals</button>
+      <ng-template ngbNavContent>
+        <div class="actions">
+          <a [routerLink]="['/dashboard/create/animal']" type="button" class="btn btn-primary btn-sm">Create Animal</a>
+          <button class="btn btn-primary btn-sm" (click)="resetAnimals()">Show all Animals</button>
+          <button class="btn btn-primary btn-sm" (click)="filterAnimalsByStatus(1)">Show only Available Animals</button>
+          <button class="btn btn-primary btn-sm" (click)="filterAnimalsByStatus(2)">Show only Adopted Animals</button>
+        </div>
+        
+        <div class="animals">
+
+          @for (animal of animals | slice: (currentPageAnimals - 1) * pageSizeAnimals : currentPageAnimals * pageSizeAnimals; track animal.id) {
+
+            <div class="animal">
+              <img [src]="storageURL + animal.animal_pictures[0].path" alt="" class="animal-picture">
+              <h6 class="animal-title">{{ animal.name }}</h6>
+              <div class="animal-actions">
+                <button type="button" class="btn btn-primary btn-sm"
+                        (click)="openDashboardAnimalEditComponent(animal.id)">Edit</button>
+                <button type="button" class="btn btn-primary btn-sm"
+                        (click)="openConfirmationDialog(animal.id)">Delete</button>
+              </div>
+            </div>
+
+          }
+
+        </div>
+
+        <ngb-pagination class="pagination" [(page)]="currentPageAnimals"
+                        [pageSize]="pageSizeAnimals" [collectionSize]="animals.length" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Received Applications</button>
+      <ng-template ngbNavContent>
+        <app-card-application [applicationsBK]="authenticatedUser!.pet_agency!.received_applications!"
+                              [authenticatedUser]="authenticatedUser" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="3">
+      <button ngbNavLink>Received Reviews</button>
+      <ng-template ngbNavContent>
+        <app-card-review [users]="users" [reviews]="authenticatedUser!.reviews_received!" [reviewType]="'received'" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="4">
+      <button ngbNavLink>Given Reviews</button>
+      <ng-template ngbNavContent>
+        <app-card-review [users]="users" [reviews]="authenticatedUser!.reviews_given!" [reviewType]="'given'" />
+      </ng-template>
+    </li>
+
+    <li [ngbNavItem]="5">
+      <button ngbNavLink>
+        <div [matBadge]="pendingReviews.length" matBadgeOverlap="false">Pending Reviews</div>
+      </button>
+      <ng-template ngbNavContent>
+        
+        @if (pendingReviews.length > 0) {
+
+          <div class="adopters">
+              
+            @for (adopter of pendingReviews | slice: (currentPagePendingReviews - 1) * pageSizePendingReviews : currentPagePendingReviews * pageSizePendingReviews; track adopter.id) {
+
+              <div class="adopter">
+                <img [src]="storageURL + adopter.picture" alt="" class="adopter-picture">
+                <h6 class="adopter-title">{{ adopter.name }}</h6>
+                <div class="adopter-actions">
+                  <button class="btn btn-primary btn-sm" (click)="openReviewDialog(adopter)" >Leave a Review</button>
+                </div>
+              </div>
+
+            }
+
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="currentPagePendingReviews"
+                          [pageSize]="pageSizePendingReviews" [collectionSize]="pendingReviews.length" />
+
+        } @else {
+
+          <div class="no-pending-reviews">
+            <span>There are no pending reviews.</span>
+          </div>
+
+        }
+
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+</div>

@@ -1,0 +1,15 @@
+:host {
+  padding: 1em;
+}
+
+.form-row,
+.form-row ngb-rating {
+  border: 1px solid #DEE2E6;
+  border-radius: 15px;
+  padding: .5em;
+}
+
+.form-row-rating {
+  display: flex;
+  flex-direction: column;
+}

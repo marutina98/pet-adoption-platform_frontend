@@ -1,0 +1,18 @@
+<div class="card agencies">
+  <div class="card-body">
+
+    <!-- title -->
+
+    <h5 class="card-title">These are some of the agencies working with our platform.</h5>
+
+    <!-- grid -->
+
+    <div class="agencies-grid">
+      @for (agency of agencies; track agency.id) {
+        <app-card-user [profile]="agency" [imageHeight]="imageHeight"
+                       [showReviews]="false" [showRedirectBtn]="true" [showRating]="true" />
+      }
+    </div>
+
+  </div>
+</div>

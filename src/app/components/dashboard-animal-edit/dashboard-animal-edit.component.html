@@ -1,0 +1,132 @@
+
+<!-- nav -->
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="activeTabId" class="nav-tabs">
+  
+  <!-- update animal -->
+
+  <li [ngbNavItem]="1">
+    <button ngbNavLink>Edit Animal</button>
+    <ng-template ngbNavContent>
+      
+      <form [formGroup]="form" (submit)="openConfirmationDialogUpdateAnimal()">
+
+        <!-- text -->
+        
+        <div class="form-floating mb-3">
+          <input id="name" class="form-control" type="text" formControlName="name">
+          <label class="form-label" for="name">Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input id="description" class="form-control" type="text" formControlName="description">
+          <label class="form-label" for="description">Description</label>
+        </div>
+
+        <!-- date -->
+
+        <div class="form-floating mb-3">
+          <input id="birthdate" class="form-control" type="date" formControlName="birthdate">
+          <label class="form-label" for="date">Birthdate</label>
+        </div>
+
+        <!-- select -->
+
+        <div class="form-floating mb-3">
+          <select id="sex" class="form-select" formControlName="sex">
+            @for (sex of sexes; track $index) {
+              <option [selected]="form.get('sex')!.value == $index" [value]="$index">{{ sex }}</option>
+            }
+          </select>
+          <label class="form-label" for="sex">Sex</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="coat-length" class="form-select" formControlName="coat_length">
+            @for (coatLength of coatLengths; track $index) {
+              <option [selected]="form.get('coat_length')!.value == $index" [value]="$index">{{ coatLength }}</option>
+            }
+          </select>
+          <label class="form-label" for="coat-length">Coat Length</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="type" class="form-select" formControlName="animal_type_id">
+            @for (type of types; track $index) {
+              <option [value]="type.id">{{ type.name }}</option>
+            }
+          </select>
+          <label class="form-label" for="type">Type</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="breed" class="form-select" formControlName="animal_breed_id">
+            @for (breed of breeds; track breed.id) {
+              <option [value]="breed.id">{{ breed.name }}</option>
+            }
+          </select>
+          <label class="form-label" for="breed">Breed</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="coat-color" class="form-select" formControlName="animal_coat_color_id">
+            @for (coatColor of coatColors; track $index) {
+              <option [value]="coatColor.id">{{ coatColor.name }}</option>
+            }
+          </select>
+          <label class="form-label" for="coat-color">Coat Color</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="adopter" class="form-select" formControlName="pet_adopter_id">
+            <option [value]="null">No Pet Adopter</option>
+            @for (petAdopter of petAdopters; track $index) {
+              <option [value]="petAdopter.id">{{ petAdopter.name }}</option>
+            }
+          </select>
+          <label class="form-label" for="adopter">Adopter</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select id="status" class="form-select" formControlName="status_id">
+            @for (status of statuses; track $index) {
+              <option [value]="status.id">{{ status.name }}</option>
+            }
+          </select>
+          <label class="form-label" for="status">Status</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </form>
+
+    </ng-template>
+  </li>
+
+  <!-- update animal pictures -->
+
+  <li [ngbNavItem]="2">
+    <button ngbNavLink>Edit Pictures</button>
+    <ng-template ngbNavContent>
+      
+      <div class="pictures">
+        
+        @for (picture of animal?.animal_pictures; track picture.id) {
+
+          <div class="picture-wrapper">
+            <img class="picture" [src]="storageURL + picture.path">
+            <button class="btn btn-primary picture-delete-btn"
+                   (click)="openConfirmationDialogDeleteAnimalPicture(picture.id)">×</button>
+          </div>
+          
+        }
+
+      </div>
+
+    </ng-template>
+  </li>
+
+</ul>
+
+<!-- nav outlet -->
+
+<div [ngbNavOutlet]="nav" class="nav-outlet"></div>

@@ -1,0 +1,494 @@
+
+<h2 class="header">Administration Panel</h2>
+
+<div class="wrapper">
+
+  <div ngbNav #nav="ngbNav" [(activeId)]="activeNavTabId" class="nav nav-pills flex-column">
+
+    <!-- users -->
+
+    <ng-container [ngbNavItem]="1">
+      <div class="nav-btn"><button ngbNavLink>Users</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-users">
+          <div class="card-users-actions">
+            <button class="btn btn-primary btn-sm" (click)="openCreateUserDialogComponent()">Create User</button>
+            <button class="btn btn-primary btn-sm" (click)="showAllUsers()">Show All Users</button>
+            <button class="btn btn-primary btn-sm" (click)="showAdministrators()">Show Only Administrators</button>
+            <button class="btn btn-primary btn-sm" (click)="showPetAdopters()">Show Only Pet Adopters</button>
+            <button class="btn btn-primary btn-sm" (click)="showPetAgencies()">Show Only Pet Agencies</button>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="usersCurrentPage"
+                         [pageSize]="usersPageSize" [collectionSize]="users.length" />
+
+          <table class="card-users-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Is Administrator ?</th>
+                <th scope="col">Is Pet Adopter ?</th>
+                <th scope="col">Is Pet Agency ?</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              @for (user of users | slice: ( usersCurrentPage - 1 ) * usersPageSize : usersCurrentPage * usersPageSize;
+                track user.id) {
+
+                <tr>
+                  <th scope="row">{{ user.id }}</th>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.is_administrator ? 'True' : 'False' }}</td>
+                  <td>{{ user.is_pet_adopter ? 'True' : 'False' }}</td>
+                  <td>{{ user.is_pet_agency ? 'True' : 'False' }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateUserDialogComponent(user)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="openDeleteUserConfirmationDialogComponent(user)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- agencies -->
+
+    <ng-container [ngbNavItem]="2">
+      <div class="nav-btn"><button ngbNavLink>Pet Agencies</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-agencies">
+
+          <ngb-pagination class="pagination" [(page)]="agenciesCurrentPage"
+                          [pageSize]="agenciesPageSize" [collectionSize]="petAgencies.length" />
+
+          <table class="card-agencies-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Website</th>
+                <th scope="col">Picture</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (agency of petAgencies | slice: ( agenciesCurrentPage - 1 ) * agenciesPageSize : agenciesCurrentPage * agenciesPageSize; track agency.id) {
+                <tr>
+                  <th scope="row">{{ agency.id }}</th>
+                  <td>{{ agency.name }}</td>
+                  <td><p class="truncated-text">{{ agency.description }}</p></td>
+                  <td><a [href]="agency.website">View Website</a></td>
+                  <td><a [href]="storageURL + agency.picture">View Picture</a></td>
+                  <td><p class="truncated-text">{{ agency.address }}</p></td>
+                  <td>{{ agency.phone }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateAgencyDialogComponent(agency)">Update</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- adopters -->
+
+    <ng-container [ngbNavItem]="3">
+      <div class="nav-btn"><button ngbNavLink>Pet Adopters</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-adopters">
+
+          <ngb-pagination class="pagination" [(page)]="adoptersCurrentPage"
+                          [pageSize]="adoptersPageSize" [collectionSize]="petAdopters.length" />
+
+          <table class="card-adopters-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Picture</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (adopter of petAdopters | slice: ( adoptersCurrentPage - 1 ) * adoptersPageSize : adoptersCurrentPage * adoptersPageSize; track adopter.id) {
+                <tr>
+                  <th scope="row">{{ adopter.id }}</th>
+                  <td>{{ adopter.name }}</td>
+                  <td><a [href]="storageURL + adopter.picture">View Picture</a></td>
+                  <td><p class="truncated-text">{{ adopter.address }}</p></td>
+                  <td>{{ adopter.phone }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateAdopterDialogComponent(adopter)">Update</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- animal types -->
+
+    <ng-container [ngbNavItem]="4">
+      <div class="nav-btn"><button ngbNavLink>Animal Types</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-types">
+          <div class="card-types-actions">
+            <button class="btn btn-primary btn-sm" (click)="openCreateTypeDialogComponent()">Create Type</button>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="typesCurrentPage"
+                          [pageSize]="typesPageSize" [collectionSize]="types.length" />
+
+          <table class="card-types-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (type of types | slice: ( typesCurrentPage - 1 ) * typesPageSize : typesCurrentPage * typesPageSize; track type.id) {
+                <tr>
+                  <th scope="row">{{ type.id }}</th>
+                  <td>{{ type.name }}</td>
+                  <td>{{ type.description }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateTypeDialogComponent(type)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                        (click)="openDeleteTypeConfirmationDialogComponent(type)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- animal breeds -->
+
+    <ng-container [ngbNavItem]="5">
+      <div class="nav-btn"><button ngbNavLink>Animal Breeds</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-breeds">
+          <div class="card-breeds-actions">
+            <button class="btn btn-primary btn-sm" (click)="openCreateBreedDialogComponent()">Create Breed</button>
+            <form class="card-breeds-form" [formGroup]="formBreeds">
+              <div class="input-group">
+                <span class="input-group-text">Filter by Type</span>
+                <select class="form-select" formControlName="type">
+                  <option selected [value]="0">Show All</option>
+                  @for (type of types; let index = $index; track index) {
+                    <option [value]="type.id">{{ type.name }}</option>
+                  }
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="breedsCurrentPage"
+                          [pageSize]="breedsPageSize" [collectionSize]="breeds.length" />
+
+          <table class="card-breeds-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (breed of breeds | slice: ( breedsCurrentPage - 1 ) * breedsPageSize : breedsCurrentPage * breedsPageSize; track breed.id) {
+                <tr>
+                  <th scope="row">{{ breed.id }}</th>
+                  <td>{{ getTypeById(breed.animal_type_id)?.name }}</td>
+                  <td>{{ breed.name }}</td>
+                  <td>{{ breed.description }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateBreedDialogComponent(breed)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                        (click)="openDeleteBreedConfirmationDialogComponent(breed)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- animal coat colors -->
+
+    <ng-container [ngbNavItem]="6">
+      <div class="nav-btn"><button ngbNavLink>Animal Coat Colors</button></div>
+      <ng-template ngbNavContent>
+        <div class="card card-coat-colors">
+          <div class="card-coat-colors-actions">
+            <button class="btn btn-primary btn-sm" (click)="openCreateCoatColorDialogComponent()">Create Color</button>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="coatColorsCurrentPage"
+                          [pageSize]="coatColorsPageSize" [collectionSize]="coatColors.length" />
+
+          <table class="card-coat-colors-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (coatColor of coatColors | slice: ( coatColorsCurrentPage - 1 ) * coatColorsPageSize : coatColorsCurrentPage * coatColorsPageSize; track coatColor.id) {
+                <tr>
+                  <th scope="row">{{ coatColor.id }}</th>
+                  <td>{{ coatColor.name }}</td>
+                  <td><div class="card-coat-color-preview" [style.--color]="coatColor.hex_color"></div></td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="openUpdateCoatColorDialogComponent(coatColor)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="openDeleteCoatColorConfirmationDialogComponent(coatColor)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </ng-template>
+    </ng-container>
+
+    <!-- statuses -->
+
+    <ng-container [ngbNavItem]="7">
+      <div class="nav-btn"><button ngbNavLink>Statuses</button></div>
+      <ng-template ngbNavContent>
+        
+        <div class="card card-statuses">
+          <div class="card-statuses-actions">
+            <button class="btn btn-primary btn-sm" (click)="openCreateStatusDialogComponent()">Create Status</button>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="statusesCurrentPage"
+                          [pageSize]="statusesPageSize" [collectionSize]="statuses.length" />
+
+          <table class="card-statuses-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (status of statuses | slice: ( statusesCurrentPage - 1 ) * statusesPageSize : statusesCurrentPage * statusesPageSize; track status.id) {
+                <tr>
+                  <th scope="row">{{ status.id }}</th>
+                  <td>{{ status.name }}</td>
+                  <td>{{ status.description }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateStatusDialogComponent(status)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="openDeleteStatusConfirmationDialogComponent(status)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+      </ng-template>
+    </ng-container>
+
+    <!-- animals -->
+
+    <ng-container [ngbNavItem]="8">
+      <div class="nav-btn"><button ngbNavLink>Animals</button></div>
+      <ng-template ngbNavContent>
+
+        <div class="card card-animals">
+          <div class="card-animals-actions">
+            <form class="card-animals-form" [formGroup]="formAnimals">
+              <div class="input-group">
+                <span class="input-group-text">Filter by Sex</span>
+                <select class="form-select" formControlName="sex">
+                  <option selected [value]="-1">Show All</option>
+                  <option [value]="0">Male</option>
+                  <option [value]="1">Female</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-text">Filter by Coat Length</span>
+                <select class="form-select" formControlName="coatLength">
+                  <option selected [value]="-1">Show All</option>
+                  <option [value]="0">Short</option>
+                  <option [value]="1">Medium</option>
+                  <option [value]="2">Long</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-text">Filter by Type</span>
+                <select class="form-select" formControlName="type">
+                  <option selected [value]="0">Show All</option>
+                  @for (type of types; let index = $index; track index) {
+                    <option [value]="type.id">{{ type.name }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-text">Filter by Status</span>
+                <select class="form-select" formControlName="status">
+                  <option selected [value]="0">Show All</option>
+                  @for (status of statuses; let index = $index; track index) {
+                    <option [value]="status.id">{{ status.name }}</option>
+                  }
+                </select>
+              </div>
+            </form>
+          </div>
+
+          <ngb-pagination class="pagination" [(page)]="animalsCurrentPage"
+                          [pageSize]="animalsPageSize" [collectionSize]="animals.length" />
+
+          <table class="card-animals-table table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Coat Length</th>
+                <th scope="col">Birthdate</th>
+                <th scope="col">Agency</th> 
+                <th scope="col">Adopter</th>
+                <th scope="col">Type</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Coat Color</th>
+                <th scope="col">Status</th>
+                <th scope="col">Pictures</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (animal of animals | slice: ( animalsCurrentPage - 1 ) * animalsPageSize : animalsCurrentPage * animalsPageSize; track animal.id) {
+                <tr>
+                  <th scope="row">{{ animal.id }}</th>
+                  <td>{{ animal.name }}</td>
+                  <td><p class="truncated-text">{{ animal.description }}</p></td>
+                  <td>{{ getAnimalSex(animal.sex) }}</td>
+                  <td>{{ getAnimalCoatLength(animal.coat_length) }}</td>
+                  <td>{{ getDate(animal.birthdate) }}</td>
+                  <td>
+                    <a [routerLink]="['../browse/view/agency', getAgencyById(animal.pet_agency_id)?.id]">
+                      {{ getAgencyById(animal.pet_agency_id)?.name }}
+                    </a>
+                  </td>
+                  <td>
+                    
+                    @if (getAdopterById(animal.pet_adopter_id)) {
+                      <a [routerLink]="['../browse/view/adopter/', getAdopterById(animal.pet_adopter_id)?.id]">
+                        {{ getAdopterById(animal.pet_adopter_id)?.name }}
+                      </a>
+                    } @else {
+                      <span>None.</span>
+                    }
+
+                  </td>
+                  <td>{{ getTypeById(animal.animal_type_id)?.name }}</td>
+                  <td>{{ getBreedById(animal.animal_breed_id)?.name }}</td>
+                  <td>{{ getCoatColorById(animal.animal_coat_color_id)?.name }}</td>
+                  <td>{{ getStatusById(animal.status_id)?.name }}</td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="viewCardPictures(animal.id, animal.animal_pictures)">View</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm" (click)="openUpdateAnimalDialogComponent(animal)">Update</button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-centered-content">
+                      <button class="btn btn-primary btn-sm"
+                              (click)="openDeleteAnimalConfirmationDialogComponent(animal)">Delete</button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+      </ng-template>
+    </ng-container>
+
+  </div>
+
+  <div [ngbNavOutlet]="nav" class="ms-4"></div>
+</div>

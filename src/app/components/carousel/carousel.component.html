@@ -1,0 +1,13 @@
+@if (carouselImages.length > 0) {
+  
+  <div class="carousel">
+    <ngb-carousel>
+      @for (image of carouselImages; track $index) {
+        <ng-template ngbSlide>
+          <div class="carousel-image" [style.background-image]="'url(' + image  + ')'"></div>
+        </ng-template>
+      }
+    </ngb-carousel>
+  </div>
+
+}

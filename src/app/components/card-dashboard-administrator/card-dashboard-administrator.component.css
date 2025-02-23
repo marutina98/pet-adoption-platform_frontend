@@ -1,0 +1,124 @@
+
+.header {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+/* wrapper */
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/* nav */
+
+.nav-btn {
+  border-inline: 1px solid #DEE2E6;
+  background-color: #FFFFFF;
+  padding-inline: .5em;
+}
+
+.nav-btn:not(:last-of-type) {
+  padding-bottom: .5em;
+}
+
+.nav-btn:first-of-type {
+  border-radius: 10px 10px 0 0;
+  border-top: 1px solid #DEE2E6;
+  padding-top: .5em;
+}
+
+.nav-btn:last-of-type {
+  border-bottom: 1px solid #DEE2E6;
+  border-radius: 0 0 10px 10px;
+  padding-bottom: .5em;
+}
+
+.nav-btn button {
+  width: 100%;
+}
+
+/* users */
+
+.card-users,
+.card-types,
+.card-breeds,
+.card-animals,
+.card-statuses,
+.card-agencies,
+.card-adopters,
+.card-coat-colors {
+  padding: 1em;
+}
+
+.card-users-actions,
+.card-types-actions,
+.card-breeds-actions,
+.card-animals-actions,
+.card-statuses-actions,
+.card-agencies-actions,
+.card-adopters-actions,
+.card-coat-colors-actions {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.card-users-table,
+.card-types-table,
+.card-breeds-table,
+.card-animals-table,
+.card-statuses-table,
+.card-agencies-table,
+.card-adopters-table,
+.card-coat-colors-table  {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  margin-bottom: 0;
+  padding: 1em;
+}
+
+.card-animals-form {
+  display: flex;
+  gap: 1em;
+}
+
+.card-breeds-form select,
+.card-breeds-form span,
+.card-animals-form select,
+.card-animals-form span {
+  font-size: .75em;
+}
+
+.card-coat-color-preview {
+  background-color: var(--color);
+  border: 5px solid #FFFFFF;
+  box-shadow: 0 0 0 1px #DEE2E6;
+  height: 30px;
+  width: 50px;
+}
+
+/* table */
+
+.card-animals table {
+  font-size: .75em;
+}
+
+.table-centered-content {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.truncated-text {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+}

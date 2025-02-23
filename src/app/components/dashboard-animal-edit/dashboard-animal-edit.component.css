@@ -1,0 +1,50 @@
+:host {
+  padding: 1em;
+}
+
+/* nav outlet */
+
+.nav-outlet {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  border-top: 0;
+  padding: 1em;
+}
+
+/* animal pictures */
+
+.pictures {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+
+}
+
+/* single picture */
+
+.picture-wrapper {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 5px;
+  padding: .5em;
+  position: relative;
+}
+
+.picture {
+  width: 150px;
+}
+
+.picture-delete-btn {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 2em;
+  justify-content: center;
+  margin: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2em;
+}

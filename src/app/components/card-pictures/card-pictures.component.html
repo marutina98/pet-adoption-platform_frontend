@@ -1,0 +1,8 @@
+<div class="pictures">
+  @for (picture of pictures; track picture.id) {
+    <div class="picture">
+      <img [src]="storageURL + picture.path">
+      <button (click)="openConfirmationDialog(picture)">×</button>
+    </div>
+  }
+</div>

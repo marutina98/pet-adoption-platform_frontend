@@ -1,0 +1,20 @@
+:host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  padding: 1em;
+}
+
+.user-type {
+  background-color: #FFFFFF;
+  border: 1px solid #DEE2E6;
+  border-radius: 0 0 15px 15px;
+  padding: 1em;
+}
+
+.user-type-label {
+  margin-right: 1em;
+}

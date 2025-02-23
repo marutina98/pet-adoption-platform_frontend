@@ -1,0 +1,116 @@
+
+<div class="filter">
+
+  <!-- Status -->
+
+  <div class="block">
+    <h5 class="block-title">Adoption Status</h5>
+    <div class="block-content">
+      <button class="btn btn-outline-primary" (click)="setShowStatus(1)">Show Available Only</button>
+      <button class="btn btn-outline-primary" (click)="setShowStatus()">View All</button>
+    </div>
+  </div>
+
+  <!-- Age -->
+
+  <div class="block">
+    <h5 class="block-title">Age</h5>
+    <div class="block-content">
+          
+      <div class="age-range">
+        
+        <div class="age-range-sliders">
+          <input class="age-range-slider" id="min" [formControl]="minAgeSlider"
+                 [(value)]="minAgeSlider.value" (input)="onMinSliderChange()"
+                 type="range" [min]="getMinAge()" [max]="getMaxAge()">
+          <input class="age-range-slider" id="max" [formControl]="maxAgeSlider"
+                 [(value)]="maxAgeSlider.value" (input)="onMaxSliderChange()"
+                 type="range" [min]="getMinAge()" [max]="getMaxAge()">
+        </div>
+
+        <div class="age-range-values">
+          <button type="button" class="btn btn-primary btn-sm">
+            Min: {{ getValue(minAgeSlider.value ?? 0) }}</button>
+          <button type="button" class="btn btn-primary btn-sm">
+            Max: {{ getValue(maxAgeSlider.value ?? 0) }}</button>
+        </div>
+
+      </div>
+
+      <button type="button" class="btn btn-outline-primary" (click)="setAgeFilter(true)">Filter Age</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setAgeFilter()">View All</button>
+
+    </div>
+  </div>
+
+  <!-- Sex -->
+
+  <div class="block">
+    <h5 class="block-title">Sex</h5>
+    <div class="block-content">
+      <button type="button" class="btn btn-outline-primary" (click)="setSex(0)">Male</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setSex(1)">Female</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setSex()">View All</button>
+    </div>
+  </div>
+
+  <!-- Coat Length -->
+
+  <div class="block">
+    <h5 class="block-title">Coat Length</h5>
+    <div class="block-content">
+      <button type="button" class="btn btn-outline-primary" (click)="setCoatLength(0)">Short Coat</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setCoatLength(1)">Medium Coat</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setCoatLength(2)">Long Coat</button>
+      <button type="button" class="btn btn-outline-primary" (click)="setCoatLength()">View All</button>
+    </div>
+  </div>
+  
+  <!-- Coat Color -->
+
+  <div class="block">
+    <h5 class="block-title">Coat Colors</h5>
+    <div class="block-content">
+      @for (coat of animalCoatColors; track coat.id) {
+        <button type="button" class="btn btn-outline-primary" (click)="setCoatColor(coat.id)">{{ coat.name }}</button>
+      }
+      <button type="button" class="btn btn-outline-primary" (click)="setCoatColor()">View All</button>
+    </div>
+  </div>
+
+  <!-- Breed -->
+
+  <div class="block">
+    <h5 class="block-title">Breed</h5>
+    <div class="block-content">
+      @for (breed of animalBreeds; track breed.id) {
+        <button type="button" class="btn btn-outline-primary" (click)="setBreed(breed.id)">{{ breed.name }}</button>
+      }
+      <button type="button" class="btn btn-outline-primary" (click)="setBreed()">View All</button>
+    </div>
+  </div>
+
+  <!-- Remove All Filters -->
+
+  <div class="block">
+    <h5 class="block-title">Remove All Filters</h5>
+    <div class="block-content">
+      <button type="button" class="btn btn-primary" (click)="resetFilters()">Remove All Filters</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="right">
+  
+  <ngb-pagination class="pagination" [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="animals.length" />
+
+  <div class="animals">
+
+    @for (animal of animals | slice: ( currentPage - 1 ) * pageSize : currentPage * pageSize; track animal.id) {
+      <app-card-animal [animal]="animal" [status]="getAnimalStatus(animal.status_id)" />
+    }
+
+  </div>
+
+</div>

@@ -1,0 +1,81 @@
+@if (profile) {
+
+  <div class="card single-page profile">
+
+    <div class="profile-picture" [style.--image]="'url(' + storageURL + profile.picture + ')'"
+         [style.--height]="imageHeight"></div>
+
+    <div class="card-body">
+      <h5 class="card-title profile-name">{{ profile.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary profile-type">
+
+        @if (profile.user.is_pet_agency) {
+          Pet Agency
+        } @else {
+          Pet Adopter
+        }
+
+      </h6>
+
+      @if (profile.description) {
+        <p class="card-text profile-description">{{ profile.description }}</p>
+      }
+
+      <!-- Show Rating -->
+
+      @if (showRating) {
+        <div class="profile-rating-alt">
+          <ngb-rating [(rate)]="averageRatingReceivedReviews" [readonly]="true" [max]="5"></ngb-rating>
+        </div>
+      }
+
+      <!-- Show Redirect Button -->
+
+      @if (profile.user.is_pet_agency && showRedirectBtn) {
+        <div class="profile-redirect">
+          <a [routerLink]="['/browse/view/agency', profile.id]" class="btn btn-primary btn-sm">Visit</a>
+        </div>
+      }
+
+      <!-- Nav: Tabs -->
+
+      @if (showReviews) {
+
+        <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+        
+          <!-- Received Reviews -->
+
+          <li [ngbNavItem]="1">
+            <button ngbNavLink>
+              <span>Received Reviews</span>
+              <ngb-rating class="profile-rating" [(rate)]="averageRatingReceivedReviews" [readonly]="true" [max]="5"></ngb-rating>
+            </button>
+            <ng-template ngbNavContent>
+              <app-card-review [users]="users" [reviews]="profile.user.reviews_received" [reviewType]="'received'" />
+            </ng-template>
+          </li>
+
+          <!-- Given Reviews -->
+
+          <li [ngbNavItem]="2">
+            <button ngbNavLink>
+              <span>Given Reviews</span>
+              <ngb-rating class="profile-rating" [(rate)]="averageRatingGivenReviews" [readonly]="true" [max]="5"></ngb-rating>
+            </button>
+            <ng-template ngbNavContent>
+              <app-card-review [users]="users" [reviews]="profile.user.reviews_given" [reviewType]="'given'" />
+            </ng-template>
+          </li>
+
+        </ul>
+
+        <!-- Nav: Content -->
+
+        <div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+
+      }
+      
+    </div>
+  </div>
+  
+}

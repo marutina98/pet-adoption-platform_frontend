@@ -1,0 +1,23 @@
+<form [formGroup]="form" (submit)="submit()">
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="name">
+    <label for="name">Name</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="description">
+    <label for="description">Description</label>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Animal Type</span>
+    <select class="form-select" formControlName="type">
+      @for (type of types; track type.id) {
+        <option [value]="type.id">{{ type.name }}</option>
+      }
+    </select>
+  </div>
+
+  <button class="btn btn-primary btn-sm">Submit</button>
+</form>

@@ -1,0 +1,45 @@
+<form class="profile-form" [formGroup]="form" (submit)="updateProfile()">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="name" formControlName="name">
+    <label for="name">Name</label>
+  </div>      
+
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="email" formControlName="email">
+    <label for="email">Email</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="phone" formControlName="phone">
+    <label for="phone">Phone</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="address" formControlName="address">
+    <label for="address">Address</label>
+  </div>
+
+  @if (authenticatedUser?.is_pet_agency) {
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="website" formControlName="website">
+      <label for="website">Website</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <label for="description">Description</label>
+    </div>
+
+  }
+
+  <div class="form-floating mb-3">
+    <input type="file" accept="image/*" class="form-control" id="picture" formControlName="picture"
+           (change)="onFileChange($event)">
+    <label for="picture">Picture</label>
+  </div>
+
+  <div class="profile-form-actions">
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+  </div>
+</form>

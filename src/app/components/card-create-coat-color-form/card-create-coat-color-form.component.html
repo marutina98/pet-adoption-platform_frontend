@@ -1,0 +1,14 @@
+<form [formGroup]="form" (submit)="submit()">
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="name">
+    <label for="name">Name</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="color" class="form-control" formControlName="color">
+    <label for="color">Color</label>
+  </div>
+
+  <button class="btn btn-primary btn-sm">Submit</button>
+</form>

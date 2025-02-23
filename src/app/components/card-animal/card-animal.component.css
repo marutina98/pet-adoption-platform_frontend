@@ -1,0 +1,37 @@
+
+.animal-title {
+  align-items: center;
+  display: flex;
+  gap: .5em;
+}
+
+.animal-name,
+.animal-sex,
+.animal-age {
+  background-color: #F5F5F5;
+  border-radius: 1em;
+  font-size: .75em;
+  padding: .5em;
+}
+
+.animal-sex-male {
+  color: blue;
+}
+
+.animal-sex-female {
+  color: pink;
+}
+
+.animal-description {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.card-carousel .card-img-top {
+  background-image: var(--image);
+  background-size: cover;
+  background-position: center center;
+  height: var(--height);
+}

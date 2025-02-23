@@ -1,0 +1,25 @@
+<ul class="reviews">
+  
+  @for (review of reviews; track review.id) {
+
+    <li class="review">
+      <div class="review-user">
+        <img [src]="storageURL + getUserPicture(review)">
+        <button class="btn btn-primary btn-sm" [routerLink]="getUserRouterLink(review)">Visit Profile</button>
+      </div>
+
+      <div class="review-content">
+        <div class="review-comment">{{ review.comment }}</div>
+        <ngb-rating class="review-rating" [(rate)]="review.rating" [readonly]="true" [max]="5" />
+      </div>
+    </li>
+
+  } @empty {
+
+    <li class="review review-empty">
+      There are no reviews at the moment.
+    </li>
+
+  }
+
+</ul>

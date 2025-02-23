@@ -1,0 +1,33 @@
+.pictures {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 150px);
+  padding: 1em;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.picture {
+  position: relative;
+}
+
+.picture img {
+  height: 150px;
+  width: 150px;
+}
+
+.picture button {
+  align-items: center;
+  background-color: var(--bs-blue);
+  border: 0;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: flex;
+  font-size: .75em;
+  height: 20px;
+  margin: .5em;
+  position: absolute;
+  right: 0;
+  width: 20px;
+  top: 0;
+}
