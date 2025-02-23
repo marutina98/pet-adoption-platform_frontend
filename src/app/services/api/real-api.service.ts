@@ -13,7 +13,7 @@ import { ReviewRequestBody } from './../../interfaces/review-request-body';
 })
 export class RealApiService {
 
-  public storageURL: string = 'http://localhost:8000/';
+  public storageURL: string = '';
 
   private cookie: CookieService = inject(CookieService);
   private baseURL: string = 'https://pet-adoption-platformbackend.vercel.app/_/';
