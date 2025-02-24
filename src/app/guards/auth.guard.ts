@@ -15,14 +15,14 @@ export const isAdministrator: CanActivateFn = async (route, state) => {
   const authService = inject(AuthService);
   const responseAuthenticatedUser = await authService.getAuthenticatedUser();
   const authenticatedUser = await responseAuthenticatedUser.json();
-  return authenticatedUser.is_administrator === 1;
+  return authenticatedUser.is_administrator === true;
 };
 
 export const isPetAgency: CanActivateFn = async (route, state) => {
   const authService = inject(AuthService);
   const responseAuthenticatedUser = await authService.getAuthenticatedUser();
   const authenticatedUser = await responseAuthenticatedUser.json();
-  return authenticatedUser.is_pet_agency === 1;
+  return authenticatedUser.is_pet_agency === true;
 };
 
 /* Error: NG0203: inject() must be called from an injection context such as a constructor, a factory function, a field initializer, or a function used with `runInInjectionContext`. */
@@ -50,7 +50,7 @@ export const isAnimalAuthor: CanActivateFn = async (route, state) => {
 
   // check that the authenticated user is a pet agency
 
-  const isPetAgency = authenticatedUser.is_pet_agency === 1;
+  const isPetAgency = authenticatedUser.is_pet_agency === true;
 
   // if the user is not a pet agency return false
 
