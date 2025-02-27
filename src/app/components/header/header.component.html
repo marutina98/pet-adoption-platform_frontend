@@ -41,11 +41,3 @@
 
   </div>
 </nav>
-
-<ngb-carousel style="display: none;">
-  @for (image of images; track image) {
-    <ng-template ngbSlide>
-      <div class="carousel-image" [style.--image]="'url(' + image + ')'"></div>
-    </ng-template>
-  }
-</ngb-carousel>

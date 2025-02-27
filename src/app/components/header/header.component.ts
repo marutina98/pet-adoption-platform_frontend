@@ -1,20 +1,13 @@
 import { Component, Input, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
-// Interfaces
-
-import { User } from './../../interfaces/user';
-
 // Services
 
 import { AuthService } from './../../services/auth.service';
 
-// Components
-
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
-const bootstrap = [NgbDropdownModule, NgbCarouselModule];
+const bootstrap = [NgbDropdownModule];
 
 // Material Design
 
@@ -41,16 +34,6 @@ export class HeaderComponent {
   // Images
 
   public logo: string = '/assets/images/header/pawprint-paw-svgrepo-com.svg';
-
-  public images: string[] = [
-    '/assets/images/header/alvan-nee-lvFlpqEvuRM-unsplash.jpg',
-    '/assets/images/header/angel-luciano-LATYeZyw88c-unsplash.jpg',
-    '/assets/images/header/anna-dudkova-urs_y9NwFcc-unsplash.jpg',
-    '/assets/images/header/erik-jan-leusink-IbPxGLgJiMI-unsplash.jpg',
-    '/assets/images/header/michael-sum-LEpfefQf4rU-unsplash.jpg',
-    '/assets/images/header/okeykat-w6elADh_jww-unsplash.jpg',
-    '/assets/images/header/thapanee-srisawat-byV33HkMneM-unsplash.jpg',
-  ];
 
   // Nav Links
 

@@ -5,11 +5,10 @@
 }
 
 main {
-  background-color: whitesmoke;
-  padding: 2em;
+  background-color: #EBF4F5;
 }
 
 section[role="main"] {
   margin-inline: auto;
-  max-width: 75vw;
+  max-width: 75%;
 }

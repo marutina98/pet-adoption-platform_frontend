@@ -1,11 +1,10 @@
 .carousel {
-	width: 100%;
+	width: 100vw;
 }
 
 .carousel-image {
   background-position: center center;
   background-size: cover;
-  border-radius: 15px;
   height: 500px;
   width: 100%;
 }
