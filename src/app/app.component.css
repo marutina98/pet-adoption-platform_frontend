@@ -11,4 +11,5 @@ main {
 section[role="main"] {
   margin-inline: auto;
   max-width: 75%;
+  padding-block: 3em;
 }

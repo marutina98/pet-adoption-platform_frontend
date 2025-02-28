@@ -9,7 +9,7 @@ import { PetAgency } from '../../../interfaces/pet-agency';
 import { Animal } from '../../../interfaces/animal';
 import { CarouselComponent } from '../../carousel/carousel.component';
 
-const components = [CardHomepageAgenciesPreviewComponent, CardHomepageShowNewAnimalsComponent, CarouselComponent];
+const components = [CardHomepageAgenciesPreviewComponent, CardHomepageShowNewAnimalsComponent];
 
 @Component({
   selector: 'app-homepage',

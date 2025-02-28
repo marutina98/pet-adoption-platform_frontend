@@ -7,16 +7,18 @@ import { AuthService } from './../../services/auth.service';
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
+const components = [CarouselComponent];
 const bootstrap = [NgbDropdownModule];
 
 // Material Design
 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, ...bootstrap],
+  imports: [RouterLink, ...bootstrap, ...components],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   providers: []
