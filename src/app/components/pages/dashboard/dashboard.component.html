@@ -1,12 +1,13 @@
+<div class="main-padding">
+  @if (authenticatedUser && authenticatedUser.is_administrator) {
+    <app-card-dashboard-administrator [users]="users" [usersBK]="users" />
+  }
 
-@if (authenticatedUser && authenticatedUser.is_administrator) {
-  <app-card-dashboard-administrator [users]="users" [usersBK]="users" />
-}
+  @if (authenticatedUser && authenticatedUser.is_pet_adopter) {
+    <app-card-dashboard-pet-adopter [authenticatedUser]="authenticatedUser" [users]="users" [pendingReviews]="pendingReviews" />
+  }
 
-@if (authenticatedUser && authenticatedUser.is_pet_adopter) {
-  <app-card-dashboard-pet-adopter [authenticatedUser]="authenticatedUser" [users]="users" [pendingReviews]="pendingReviews" />
-}
-
-@if (authenticatedUser && authenticatedUser.is_pet_agency) {
-  <app-card-dashboard-pet-agency [authenticatedUser]="authenticatedUser" [users]="users" [pendingReviews]="pendingReviews" />
-}
+  @if (authenticatedUser && authenticatedUser.is_pet_agency) {
+    <app-card-dashboard-pet-agency [authenticatedUser]="authenticatedUser" [users]="users" [pendingReviews]="pendingReviews" />
+  }
+</div>

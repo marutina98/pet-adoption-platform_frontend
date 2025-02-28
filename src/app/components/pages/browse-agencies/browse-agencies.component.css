@@ -18,3 +18,17 @@
 app-card-user {
   width: 200px;
 }
+
+.main-padding {
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+	gap: 3em;
+	margin-inline: auto;
+	max-width: 75%;
+	padding-block: 3em;
+}
+
+.main-padding > * {
+	width: 100%;
+}

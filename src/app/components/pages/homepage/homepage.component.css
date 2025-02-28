@@ -1,10 +1,24 @@
-:host {
+
+:host > * {
+	width: 100%;
+}
+
+app-carousel {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.main-padding {
 	align-items: center;
 	display: flex;
 	flex-flow: column;
 	gap: 3em;
+	margin-inline: auto;
+	max-width: 75%;
+	padding-block: 3em;
 }
 
-:host > * {
+.main-padding > * {
 	width: 100%;
 }

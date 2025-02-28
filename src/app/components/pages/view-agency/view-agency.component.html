@@ -1,41 +1,43 @@
-<!-- nav -->
+<div class="main-padding">
+  <!-- nav -->
 
-<ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
-  
-  <!-- nav animal and adoption form -->
+  <ul ngbNav #nav="ngbNav" [(activeId)]="activeTab" class="nav-tabs">
+    
+    <!-- nav animal and adoption form -->
 
-  <li [ngbNavItem]="1">
-    <button ngbNavLink>Pet Agency</button>
-    <ng-template ngbNavContent>
-      @if (agency?.user) {
-        <app-card-user [profile]="agency" [singlePage]="true" [imageHeight]="cardUserImageHeight" />
-      }
-    </ng-template>
-  </li>
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>Pet Agency</button>
+      <ng-template ngbNavContent>
+        @if (agency?.user) {
+          <app-card-user [profile]="agency" [singlePage]="true" [imageHeight]="cardUserImageHeight" />
+        }
+      </ng-template>
+    </li>
 
-  <!-- nav agency -->
+    <!-- nav agency -->
 
-  <li [ngbNavItem]="2">
-    <button ngbNavLink>Animals</button>
-    <ng-template ngbNavContent>
-      @if (agency?.animals) {
-        
-        <div class="animals">
-          <div class="animals-grid">
-            @for (animal of agency?.animals | slice: ( currentPage - 1 ) * pageSize : currentPage * pageSize; track animal.id) {
-              <app-card-animal [animal]="animal" [singlePage]="false" [imageHeight]="cardAnimalImageHeight"
-                               [status]="getStatus(animal.status_id)" />
-            }
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>Animals</button>
+      <ng-template ngbNavContent>
+        @if (agency?.animals) {
+          
+          <div class="animals">
+            <div class="animals-grid">
+              @for (animal of agency?.animals | slice: ( currentPage - 1 ) * pageSize : currentPage * pageSize; track animal.id) {
+                <app-card-animal [animal]="animal" [singlePage]="false" [imageHeight]="cardAnimalImageHeight"
+                                [status]="getStatus(animal.status_id)" />
+              }
+            </div>
+
+            <ngb-pagination class="animals-pagination"
+                            [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="agency?.animals!.length" />
           </div>
 
-          <ngb-pagination class="animals-pagination"
-                          [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="agency?.animals!.length" />
-        </div>
+        }
+      </ng-template>
+    </li>
 
-      }
-    </ng-template>
-  </li>
+  </ul>
 
-</ul>
-
-<div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+  <div [ngbNavOutlet]="nav" class="nav-outlet"></div>
+</div>
