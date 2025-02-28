@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 25% auto;
   grid-template-areas: 'left right';
+  padding: 2em;
 }
 
 /* filters */
@@ -118,18 +119,4 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2em;
   grid-area: animals;
-}
-
-.main-padding {
-	align-items: center;
-	display: flex;
-	flex-flow: column;
-	gap: 3em;
-	margin-inline: auto;
-	max-width: 75%;
-	padding-block: 3em;
-}
-
-.main-padding > * {
-	width: 100%;
 }
